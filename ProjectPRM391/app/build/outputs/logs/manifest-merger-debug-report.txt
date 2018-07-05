@@ -1,0 +1,108 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:2:1-21:12
+MERGED from [com.android.support:appcompat-v7:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/536b0a13c20fac74c596ddeb7368a2fa/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.1] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.1.aar/fa45f04e573555caef3f74bdb176f3f6/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0-alpha1.aar/558b7dcfd5c45cc69ed28523a02932e2/AndroidManifest.xml:17:1-26:12
+MERGED from [ai.api:sdk:2.0.7] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/sdk-2.0.7.aar/1e63a7db2cb21275674f19a500e1fdff/AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:support-fragment:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/17131bcd274308bf0c85144214fa7474/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/8214d6e564fcff9c55fcefd1d4f5b49d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.2.aar/e8add1973c52371c6bcf23b852041f40/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.2.aar/c4595976c0bc3d2ac8b5209ae250bd5d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/4d99e2806f9562c75b1dfd5144ac892f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/9397491e1615a36fe9631a1307ee8a0d/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/7ef8535bc06861e4477d1f980e4b258e/AndroidManifest.xml:17:1-24:12
+INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:2:1-21:12
+	package
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:3:9-56
+		INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:2:1-21:12
+		INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:2:1-21:12
+		INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:5:9-19:23
+MERGED from [com.android.support.constraint:constraint-layout:1.1.1] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.1.aar/fa45f04e573555caef3f74bdb176f3f6/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.1] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.1.aar/fa45f04e573555caef3f74bdb176f3f6/AndroidManifest.xml:9:5-20
+MERGED from [ai.api:sdk:2.0.7] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/sdk-2.0.7.aar/1e63a7db2cb21275674f19a500e1fdff/AndroidManifest.xml:11:5-20
+MERGED from [ai.api:sdk:2.0.7] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/sdk-2.0.7.aar/1e63a7db2cb21275674f19a500e1fdff/AndroidManifest.xml:11:5-20
+	android:supportsRtl
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:10:17-43
+	android:label
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:8:17-49
+	android:roundIcon
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:9:17-62
+	android:icon
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:7:17-51
+	android:allowBackup
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:6:17-43
+	android:theme
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:11:17-48
+activity#duchtse04705.fpt.edu.vn.projectprm391.MainActivity
+ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:12:17-18:28
+	android:name
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:12:27-55
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:13:25-17:41
+action#android.intent.action.MAIN
+ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:14:33-85
+	android:name
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:14:41-82
+category#android.intent.category.LAUNCHER
+ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:16:33-93
+	android:name
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml:16:43-90
+uses-sdk
+INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/536b0a13c20fac74c596ddeb7368a2fa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/536b0a13c20fac74c596ddeb7368a2fa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.1] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.1.aar/fa45f04e573555caef3f74bdb176f3f6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.1] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.1.aar/fa45f04e573555caef3f74bdb176f3f6/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0-alpha1.aar/558b7dcfd5c45cc69ed28523a02932e2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0-alpha1.aar/558b7dcfd5c45cc69ed28523a02932e2/AndroidManifest.xml:20:5-44
+MERGED from [ai.api:sdk:2.0.7] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/sdk-2.0.7.aar/1e63a7db2cb21275674f19a500e1fdff/AndroidManifest.xml:7:5-9:41
+MERGED from [ai.api:sdk:2.0.7] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/sdk-2.0.7.aar/1e63a7db2cb21275674f19a500e1fdff/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-fragment:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/17131bcd274308bf0c85144214fa7474/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/17131bcd274308bf0c85144214fa7474/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/8214d6e564fcff9c55fcefd1d4f5b49d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/8214d6e564fcff9c55fcefd1d4f5b49d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.2.aar/e8add1973c52371c6bcf23b852041f40/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.2.aar/e8add1973c52371c6bcf23b852041f40/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.2.aar/c4595976c0bc3d2ac8b5209ae250bd5d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.2.aar/c4595976c0bc3d2ac8b5209ae250bd5d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/4d99e2806f9562c75b1dfd5144ac892f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/4d99e2806f9562c75b1dfd5144ac892f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/9397491e1615a36fe9631a1307ee8a0d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/9397491e1615a36fe9631a1307ee8a0d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/7ef8535bc06861e4477d1f980e4b258e/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/7ef8535bc06861e4477d1f980e4b258e/AndroidManifest.xml:20:5-22:41
+INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+		ADDED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/suicun9x/Desktop/prm391/ProjectPRM391/app/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0-alpha1.aar/558b7dcfd5c45cc69ed28523a02932e2/AndroidManifest.xml:22:5-24:41
+	android:value
+		ADDED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0-alpha1.aar/558b7dcfd5c45cc69ed28523a02932e2/AndroidManifest.xml:24:9-38
+	android:name
+		ADDED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /Users/suicun9x/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0-alpha1.aar/558b7dcfd5c45cc69ed28523a02932e2/AndroidManifest.xml:23:9-47

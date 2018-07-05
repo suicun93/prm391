@@ -1,0 +1,4 @@
+#Thu Jul 05 15:25:35 ICT 2018
+base.0=/Users/suicun9x/Desktop/prm391/ProjectPRM391/app/build/intermediates/transforms/dexMerger/debug/1
+path.0=classes.dex
+renamed.0=classes.dex
