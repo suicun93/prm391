@@ -16,6 +16,7 @@
                         android:id="@+id/chat_recycler_view"
                         android:layout_width="match_parent"
                         android:layout_height="466dp"
+                        android:padding="20dp"
                         android:background="@android:drawable/dialog_holo_light_frame"
                         app:layout_constraintBottom_toTopOf="@+id/inputLinear"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -28,6 +29,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/white"
+                        android:gravity="bottom"
                         android:orientation="horizontal"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -38,15 +40,28 @@
                                 android:id="@+id/chat_input_msg"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_weight="8"
+                                android:gravity="top"
                                 android:hint="Input message."
-                                android:maxLines="3" />
+                                android:inputType="none"
+                                android:maxLines="2" />
+
+
+                        <Button
+                                android:id="@+id/chatVoice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="bottom"
+                                android:text="Voice" />
 
                         <Button
                                 android:id="@+id/chat_send_msg"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Send"
+                                android:layout_weight="1"
+                                android:gravity="bottom"
+                                android:text="SEND"
                                 android:textAllCaps="false" />
 
                 </LinearLayout>

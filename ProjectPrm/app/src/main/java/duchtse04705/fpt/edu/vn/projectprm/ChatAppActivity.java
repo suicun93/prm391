@@ -1,11 +1,12 @@
 package duchtse04705.fpt.edu.vn.projectprm;
 
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,8 +17,6 @@ import java.util.List;
 
 import ai.api.AIListener;
 import ai.api.AIServiceException;
-import ai.api.android.AIDataService;
-import ai.api.android.AIService;
 import ai.api.model.AIError;
 import ai.api.model.AIRequest;
 import ai.api.model.AIResponse;
@@ -25,10 +24,12 @@ import ai.api.model.Fulfillment;
 import ai.api.model.Result;
 
 public class ChatAppActivity extends AppCompatActivity implements AIListener {
-        RecyclerView msgRecyclerView;
-        List<ChatAppMsgDTO> msgDtoList = new ArrayList<>();
-        ChatAppMsgAdapter chatAppMsgAdapter;
-        AIBot aiBot;
+        
+        private RecyclerView msgRecyclerView;
+        private Button chatVoiceButton;
+        private final List<ChatAppMsgDTO> msgDtoList = new ArrayList<>();
+        private ChatAppMsgAdapter chatAppMsgAdapter;
+        private AIBot aiBot;
         
         @Override
         protected void onStart() {
@@ -47,11 +48,11 @@ public class ChatAppActivity extends AppCompatActivity implements AIListener {
         }
         
         private void initObject() {
-                // INIT AIBOT
+                // Init Aibot
                 aiBot = new AIBot( this, this );
                 
                 // Create the initial data list.
-                addMessage( ChatAppMsgDTO.MSG_TYPE.RECEIVED, "Hello" );
+                addMessage( ChatAppMsgDTO.MSG_TYPE.RECEIVED, "Welcome to Health Care Chatbot." );
                 
                 // Create the data adapter with above data list.
                 chatAppMsgAdapter = new ChatAppMsgAdapter( msgDtoList );
@@ -59,9 +60,9 @@ public class ChatAppActivity extends AppCompatActivity implements AIListener {
                 // Set data adapter to RecyclerView.
                 msgRecyclerView.setAdapter( chatAppMsgAdapter );
                 
-                final EditText msgInputText = (EditText) findViewById( R.id.chat_input_msg );
+                final EditText msgInputText = findViewById( R.id.chat_input_msg );
                 
-                Button msgSendButton = (Button) findViewById( R.id.chat_send_msg );
+                Button msgSendButton = findViewById( R.id.chat_send_msg );
                 
                 msgSendButton.setOnClickListener( new View.OnClickListener() {
                         @Override
@@ -123,11 +124,7 @@ public class ChatAppActivity extends AppCompatActivity implements AIListener {
         private void addMessage(ChatAppMsgDTO.MSG_TYPE msgType, String msgContent) {
                 ChatAppMsgDTO msgDto = new ChatAppMsgDTO( msgType, msgContent );
                 synchronized (msgDtoList) {
-                        if (msgDtoList == null) {
-                                msgDtoList = new ArrayList<>();
-                        } else {
-                                msgDtoList.add( msgDto );
-                        }
+                        msgDtoList.add( msgDto );
                         
                         int newMsgPosition = msgDtoList.size() - 1;
                         
@@ -142,10 +139,24 @@ public class ChatAppActivity extends AppCompatActivity implements AIListener {
                 }
         }
         
-        
         private void setupUI() {
+                // Get Chat voice button
+                chatVoiceButton = findViewById( R.id.chatVoice );
+                if (chatVoiceButton != null) {
+                        chatVoiceButton.setOnClickListener( new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                        if (isListening()) {
+                                                aiBot.aiService.stopListening();
+                                        } else {
+                                                aiBot.aiService.startListening();
+                                        }
+                                }
+                        } );
+                }
+                
                 // Get RecyclerView object.
-                msgRecyclerView = (RecyclerView) findViewById( R.id.chat_recycler_view );
+                msgRecyclerView = findViewById( R.id.chat_recycler_view );
                 
                 // Set RecyclerView layout manager.
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager( this );
@@ -157,24 +168,18 @@ public class ChatAppActivity extends AppCompatActivity implements AIListener {
                 Log.d( "PRM391 result listened", "onResult: " + response.toString() );
                 Result result = response.getResult();
                 
-                // Get parameters
-//        String parameterString = "";
-//        if (result.getParameters() != null && !result.getParameters().isEmpty()) {
-//            for (final Map.Entry<String, JsonElement> entry : result.getParameters().entrySet()) {
-//                parameterString += "(" + entry.getKey() + ", " + entry.getValue() + ") ";
-//            }
-//        }
                 //get output
                 Fulfillment fulfillment = result.getFulfillment();
                 String data = fulfillment.getSpeech();
                 
                 // Show results in TextView.
+                addMessage( ChatAppMsgDTO.MSG_TYPE.SENT, result.getResolvedQuery() );
                 addMessage( ChatAppMsgDTO.MSG_TYPE.RECEIVED, data );
         }
         
         @Override
         public void onError(AIError error) {
-        
+                addMessage( ChatAppMsgDTO.MSG_TYPE.RECEIVED, "Error" + error.toString() );
         }
         
         @Override
@@ -184,16 +189,38 @@ public class ChatAppActivity extends AppCompatActivity implements AIListener {
         
         @Override
         public void onListeningStarted() {
-        
+                chatVoiceButton.setText( "Listening" );
         }
         
         @Override
         public void onListeningCanceled() {
-        
+                chatVoiceButton.setText( "Voice" );
         }
         
         @Override
         public void onListeningFinished() {
+                chatVoiceButton.setText( "Voice" );
+        }
         
+        @Override
+        public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+                super.onRequestPermissionsResult( requestCode, permissions, grantResults );
+                switch (requestCode) {
+                        case 33: {
+                                // If request is cancelled, the result arrays are empty.
+                                if (grantResults.length > 0
+                                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                                        // permission was granted, yay! Do the
+                                        // contacts-related task you need to do.
+                                } else {
+                                        // permission denied, boo! Disable the
+                                        // functionality that depends on this permission.
+                                }
+                        }
+                }
+        }
+        
+        private boolean isListening() {
+                return chatVoiceButton.getText().toString().trim().equalsIgnoreCase( "Listening" );
         }
 }

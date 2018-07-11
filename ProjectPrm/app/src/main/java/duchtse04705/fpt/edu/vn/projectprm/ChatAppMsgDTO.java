@@ -33,15 +33,7 @@ public class ChatAppMsgDTO {
                 return msgContent;
         }
         
-        public void setMsgContent(String msgContent) {
-                this.msgContent = msgContent;
-        }
-        
         public MSG_TYPE getMsgType() {
                 return msgType;
-        }
-        
-        public void setMsgType(MSG_TYPE msgType) {
-                this.msgType = msgType;
         }
 }

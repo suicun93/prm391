@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChatAppMsgAdapter extends RecyclerView.Adapter<ChatAppMsgViewHolder> {
-        private List<ChatAppMsgDTO> msgDtoList = null;
+class ChatAppMsgAdapter extends RecyclerView.Adapter<ChatAppMsgViewHolder> {
+        private List<ChatAppMsgDTO> msgDtoList;
         
         public ChatAppMsgAdapter(List<ChatAppMsgDTO> msgDtoList) {
                 this.msgDtoList = msgDtoList;
@@ -56,7 +56,7 @@ public class ChatAppMsgAdapter extends RecyclerView.Adapter<ChatAppMsgViewHolder
         @Override
         public int getItemCount() {
                 if (msgDtoList == null) {
-                        msgDtoList = new ArrayList<ChatAppMsgDTO>();
+                        msgDtoList = new ArrayList<>();
                 }
                 return msgDtoList.size();
         }
