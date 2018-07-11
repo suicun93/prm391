@@ -7,6 +7,7 @@ import android.support.v4.app.ActivityCompat;
 
 class AppConfig {
         public static final String clientAccessToken = "43b497220182444abccb7f90c781ea09";
+        public static final String regex = ";";
         
         public static void checkAudioRecordPermission(Activity activity) {
                 if (ActivityCompat.checkSelfPermission( activity,

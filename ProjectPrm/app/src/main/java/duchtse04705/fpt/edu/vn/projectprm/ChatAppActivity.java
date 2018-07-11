@@ -1,8 +1,10 @@
 package duchtse04705.fpt.edu.vn.projectprm;
 
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,6 +29,7 @@ public class ChatAppActivity extends AppCompatActivity implements AIListener {
         
         private RecyclerView msgRecyclerView;
         private Button chatVoiceButton;
+        private EditText msgInputText;
         private final List<ChatAppMsgDTO> msgDtoList = new ArrayList<>();
         private ChatAppMsgAdapter chatAppMsgAdapter;
         private AIBot aiBot;
@@ -47,11 +50,51 @@ public class ChatAppActivity extends AppCompatActivity implements AIListener {
                 initObject();
         }
         
+        private void sendMessage(final String message) {
+                new AsyncTask<AIRequest, Void, AIResponse>() {
+                        String requestData = "";
+                        
+                        @Override
+                        protected void onPreExecute() {
+                                super.onPreExecute();
+                                requestData = message;
+                                
+                                // Send request to AI
+                                aiBot.aiRequest.setQuery( requestData );
+                                
+                                // Set UI
+                                addMessage( ChatAppMsgDTO.MSG_TYPE.SENT, requestData );
+                                msgInputText.setText( "" );
+                        }
+                        
+                        @Override
+                        protected AIResponse doInBackground(AIRequest... requests) {
+                                //final AIRequest request = requests[0];
+                                // Send request and wait response
+                                try {
+                                        final AIResponse response = aiBot.aiDataService
+                                                .request(
+                                                        aiBot.aiRequest );
+                                        return response;
+                                } catch (AIServiceException e) {
+                                        Log.e( "PRM391", e.getMessage() );
+                                }
+                                return null;
+                        }
+                        
+                        @Override
+                        protected void onPostExecute(AIResponse aiResponse) {
+                                // Received response
+                                responseProcess( aiResponse, false );
+                        }
+                }.execute( aiBot.aiRequest );
+        }
+        
         private void initObject() {
                 // Init Aibot
                 aiBot = new AIBot( this, this );
                 
-                // Create the initial data list.
+                // Create first greeting.
                 addMessage( ChatAppMsgDTO.MSG_TYPE.RECEIVED, "Welcome to Health Care Chatbot." );
                 
                 // Create the data adapter with above data list.
@@ -60,83 +103,17 @@ public class ChatAppActivity extends AppCompatActivity implements AIListener {
                 // Set data adapter to RecyclerView.
                 msgRecyclerView.setAdapter( chatAppMsgAdapter );
                 
-                final EditText msgInputText = findViewById( R.id.chat_input_msg );
-                
                 Button msgSendButton = findViewById( R.id.chat_send_msg );
                 
                 msgSendButton.setOnClickListener( new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                                final String msgContent = msgInputText.getText().toString();
-                                
+                                final String msgContent = msgInputText.getText().toString().trim();
                                 if (! msgContent.isEmpty()) {
-                                        new AsyncTask<AIRequest, Void, AIResponse>() {
-                                                String requestData = "";
-                                                
-                                                @Override
-                                                protected void onPreExecute() {
-                                                        super.onPreExecute();
-                                                        requestData = msgContent;
-                                                        
-                                                        // Send request to AI
-                                                        aiBot.aiRequest.setQuery( requestData );
-                                                        
-                                                        // Set UI
-                                                        addMessage( ChatAppMsgDTO.MSG_TYPE.SENT, requestData );
-                                                        msgInputText.setText( "" );
-                                                }
-                                                
-                                                @Override
-                                                protected AIResponse doInBackground(AIRequest... requests) {
-                                                        //final AIRequest request = requests[0];
-                                                        // Send request and wait response
-                                                        try {
-                                                                final AIResponse response = aiBot.aiDataService
-                                                                        .request(
-                                                                                aiBot.aiRequest );
-                                                                return response;
-                                                        } catch (AIServiceException e) {
-                                                                Log.e( "PRM391", e.getMessage() );
-                                                        }
-                                                        return null;
-                                                }
-                                                
-                                                @Override
-                                                protected void onPostExecute(AIResponse aiResponse) {
-                                                        // Received response
-                                                        if (aiResponse != null) {
-                                                                Result result = aiResponse.getResult();
-                                                                Fulfillment fulfillment = result.getFulfillment();
-                                                                String receivedMessage = fulfillment.getSpeech();
-                                                                
-                                                                // Show results in View.
-                                                                Log.i( "PRM391", "Query:" + result.getResolvedQuery() +
-                                                                        "\nResult: " + receivedMessage );
-                                                                addMessage( ChatAppMsgDTO.MSG_TYPE.RECEIVED, receivedMessage );
-                                                        }
-                                                }
-                                        }.execute( aiBot.aiRequest );
+                                        sendMessage( msgContent );
                                 }
                         }
                 } );
-        }
-        
-        private void addMessage(ChatAppMsgDTO.MSG_TYPE msgType, String msgContent) {
-                ChatAppMsgDTO msgDto = new ChatAppMsgDTO( msgType, msgContent );
-                synchronized (msgDtoList) {
-                        msgDtoList.add( msgDto );
-                        
-                        int newMsgPosition = msgDtoList.size() - 1;
-                        
-                        // Notify recycler view insert one new data.
-                        if (chatAppMsgAdapter == null) {
-                                chatAppMsgAdapter = new ChatAppMsgAdapter( msgDtoList );
-                        }
-                        chatAppMsgAdapter.notifyItemInserted( newMsgPosition );
-                        
-                        // Scroll RecyclerView to the last message.
-                        msgRecyclerView.scrollToPosition( newMsgPosition );
-                }
         }
         
         private void setupUI() {
@@ -155,6 +132,9 @@ public class ChatAppActivity extends AppCompatActivity implements AIListener {
                         } );
                 }
                 
+                // Get input text
+                msgInputText = findViewById( R.id.chat_input_msg );
+                
                 // Get RecyclerView object.
                 msgRecyclerView = findViewById( R.id.chat_recycler_view );
                 
@@ -163,18 +143,11 @@ public class ChatAppActivity extends AppCompatActivity implements AIListener {
                 msgRecyclerView.setLayoutManager( linearLayoutManager );
         }
         
+        
+        // Listen mode
         @Override
         public void onResult(AIResponse response) {
-                Log.d( "PRM391 result listened", "onResult: " + response.toString() );
-                Result result = response.getResult();
-                
-                //get output
-                Fulfillment fulfillment = result.getFulfillment();
-                String data = fulfillment.getSpeech();
-                
-                // Show results in TextView.
-                addMessage( ChatAppMsgDTO.MSG_TYPE.SENT, result.getResolvedQuery() );
-                addMessage( ChatAppMsgDTO.MSG_TYPE.RECEIVED, data );
+                responseProcess( response, true );
         }
         
         @Override
@@ -222,5 +195,69 @@ public class ChatAppActivity extends AppCompatActivity implements AIListener {
         
         private boolean isListening() {
                 return chatVoiceButton.getText().toString().trim().equalsIgnoreCase( "Listening" );
+        }
+        
+        private void addMessage(ChatAppMsgDTO.MSG_TYPE msgType, String msgContent) {
+                ChatAppMsgDTO msgDto = new ChatAppMsgDTO( msgType, msgContent );
+                synchronized (msgDtoList) {
+                        msgDtoList.add( msgDto );
+                        
+                        int newMsgPosition = msgDtoList.size() - 1;
+                        
+                        // Notify recycler view insert one new data.
+                        if (chatAppMsgAdapter == null) {
+                                chatAppMsgAdapter = new ChatAppMsgAdapter( msgDtoList );
+                        }
+                        chatAppMsgAdapter.notifyItemInserted( newMsgPosition );
+                        
+                        // Scroll RecyclerView to the last message.
+                        msgRecyclerView.scrollToPosition( newMsgPosition );
+                }
+        }
+        
+        private boolean isList(String string) {
+                return string.contains( AppConfig.regex );
+        }
+        
+        private void popupToSelect(final String[] list) {
+                AlertDialog.Builder builder = new AlertDialog.Builder( this );
+                builder.setTitle( list[0] );
+                
+                // Cut the first element of array
+                final String[] newArray = new String[list.length - 1];
+                System.arraycopy( list, 1, newArray, 0, list.length - 1 );
+                builder.setItems( newArray, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                                sendMessage( newArray[which] );
+                        }
+                } );
+                builder.show();
+        }
+        
+        private void responseProcess(AIResponse aiResponse, boolean fromListening) {
+                if (aiResponse != null) {
+                        Result result = aiResponse.getResult();
+                        Fulfillment fulfillment = result.getFulfillment();
+                        String receivedMessage = fulfillment.getSpeech();
+                        
+                        // Show results in View.
+                        Log.i( "PRM391", "Query:" + result.getResolvedQuery() +
+                                "\nResult: " + receivedMessage );
+                        
+                        // if process when listening then display message what was heard
+                        if (fromListening) {
+                                addMessage( ChatAppMsgDTO.MSG_TYPE.SENT, result.getResolvedQuery() );
+                        }
+                        
+                        // Check received Message is json or not
+                        if (isList( receivedMessage )) {
+                                String[] list = receivedMessage.split( AppConfig.regex );
+                                addMessage( ChatAppMsgDTO.MSG_TYPE.RECEIVED, list[0] );
+                                popupToSelect( list );
+                        } else {
+                                addMessage( ChatAppMsgDTO.MSG_TYPE.RECEIVED, receivedMessage );
+                        }
+                }
         }
 }
