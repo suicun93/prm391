@@ -1,78 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ChatAppActivity">
-
-    <TextView
-        android:id="@+id/txtInforName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-         android:text="Khong co thong tin"></TextView>
-    <android.support.constraint.ConstraintLayout
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".ChatAppActivity">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/chat_recycler_view"
+
+    <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="466dp"
-            android:background="@android:drawable/dialog_holo_light_frame"
-            android:padding="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/inputLinear"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_green_light"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/txtInforName"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:text="Log in to get information"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_signin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        <Button
+                android:id="@+id/btn_signin"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Sign in"
+                android:textAllCaps="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/inputLinear"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtInforName">
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/chat_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:drawable/dialog_holo_light_frame"
+                    android:padding="20dp"
+                    app:layout_constraintVertical_chainStyle="spread_inside" />
+        </LinearLayout>
 
 
         <LinearLayout
-            android:id="@+id/inputLinear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:gravity="bottom"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/chat_recycler_view">
+                android:id="@+id/inputLinear"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="3dp"
+                android:weightSum="7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout">
 
             <EditText
-                android:id="@+id/chat_input_msg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="8"
-                android:gravity="top"
-                android:hint="Input message."
-                android:inputType="none"
-                android:maxLines="2" />
+                    android:id="@+id/chat_input_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:gravity="left|center_vertical"
+                    android:hint="Input message."
+                    android:inputType="none"
+                    android:maxLines="5"
+                    android:textSize="12sp" />
 
 
             <Button
-                android:id="@+id/chatVoice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="bottom"
-                android:text="Voice" />
+                    android:id="@+id/chatVoice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Voice" />
 
             <Button
-                android:id="@+id/chat_send_msg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="bottom"
-                android:text="SEND"
-                android:textAllCaps="false" />
+                    android:id="@+id/chat_send_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="SEND"
+                    android:textAllCaps="true" />
+
 
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

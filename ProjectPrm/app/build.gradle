@@ -1,37 +1,36 @@
 apply plugin: 'com.android.application'
-
 android {
-    compileSdkVersion 26
-    buildToolsVersion '27.0.3'
-    defaultConfig {
-        applicationId "duchtse04705.fpt.edu.vn.projectprm"
-        minSdkVersion 24
-        targetSdkVersion 26
-        versionCode 1
-        versionName "2.0"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        compileSdkVersion 26
+        buildToolsVersion '27.0.3'
+        defaultConfig {
+                applicationId "duchtse04705.fpt.edu.vn.projectprm"
+                minSdkVersion 24
+                targetSdkVersion 26
+                versionCode 1
+                versionName "2.0"
         }
-    }
+        buildTypes {
+                release {
+                        minifyEnabled false
+                        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                }
+        }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.android.support:appcompat-v7:27.1.1"
-    implementation 'com.android.support:recyclerview-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'ai.api:sdk:2.0.7@aar'
-    implementation 'ai.api:libai:1.6.12'
-    //    compile 'com.google.cloud:google-cloud-dialogflow:0.53.0-alpha'
-    compile 'com.google.android.gms:play-services-auth:15.0.1'
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation "com.android.support:appcompat-v7:27.1.1"
+        implementation 'com.android.support:recyclerview-v7:26.1.0'
+        implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+        implementation 'ai.api:sdk:2.0.7@aar'
+        implementation 'ai.api:libai:1.6.12'
+        //    compile 'com.google.cloud:google-cloud-dialogflow:0.53.0-alpha'
+        implementation 'com.google.android.gms:play-services-auth:15.0.1'
 
 }
 configurations.all {
-    resolutionStrategy {
-        force 'com.android.support:support-annotations:23.1.1'
-    }
+        resolutionStrategy {
+                force 'com.android.support:support-annotations:23.1.1'
+        }
 }
 
