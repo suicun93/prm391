@@ -52,7 +52,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@android:drawable/dialog_holo_light_frame"
-                                android:padding="20dp"
+                                android:padding="15dp"
                                 app:layout_constraintVertical_chainStyle="spread_inside" />
                 </LinearLayout>
 
@@ -64,7 +64,7 @@
                         android:background="@android:color/white"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:padding="2dp"
+                        android:padding="3dp"
                         android:weightSum="7"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
