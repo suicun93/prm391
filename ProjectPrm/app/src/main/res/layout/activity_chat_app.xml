@@ -1,104 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".ChatAppActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChatAppActivity">
 
 
     <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/holo_green_light"
-            android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_green_light"
+        android:orientation="vertical">
 
         <TextView
-                android:id="@+id/txtInforName"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:gravity="center_vertical"
-                android:text="Log in to get information"
-                android:textSize="18dp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_signin"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></TextView>
+            android:id="@+id/txtInforName"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:text="Log in to get information"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-                android:id="@+id/btn_signin"
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginTop="5dp"
-                android:text="Sign in"
-                android:textAllCaps="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/btnSignout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Out"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"></Button>
 
         <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/inputLinear"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtInforName">
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/inputLinear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtInforName">
 
             <android.support.v7.widget.RecyclerView
-                    android:id="@+id/chat_recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:drawable/dialog_holo_light_frame"
-                    android:padding="15dp"
-                    app:layout_constraintVertical_chainStyle="spread_inside" />
+                android:id="@+id/chat_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:drawable/dialog_holo_light_frame"
+                android:padding="15dp"
+                app:layout_constraintVertical_chainStyle="spread_inside" />
         </LinearLayout>
 
 
         <LinearLayout
-                android:id="@+id/inputLinear"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@android:color/white"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="3dp"
-                android:weightSum="7"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/linearLayout">
+            android:id="@+id/inputLinear"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="3dp"
+            android:weightSum="7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout">
 
             <EditText
-                    android:id="@+id/chat_input_msg"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="7"
-                    android:gravity="left|center_vertical"
-                    android:hint="Input message."
-                    android:inputType="none"
-                    android:maxLines="5"
-                    android:textSize="14dp" />
+                android:id="@+id/chat_input_msg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:gravity="left|center_vertical"
+                android:hint="Input message."
+                android:inputType="none"
+                android:maxLines="5"
+                android:textSize="14dp" />
 
 
             <Button
-                    android:id="@+id/chatVoice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:text="Voice" />
+                android:id="@+id/chatVoice"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Voice" />
 
             <Button
-                    android:id="@+id/chat_send_msg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:text="SEND"
-                    android:textAllCaps="true" />
+                android:id="@+id/chat_send_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="SEND"
+                android:textAllCaps="true" />
 
 
         </LinearLayout>

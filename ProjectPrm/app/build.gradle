@@ -6,7 +6,7 @@ android {
                 applicationId "duchtse04705.fpt.edu.vn.projectprm"
                 minSdkVersion 24
                 targetSdkVersion 26
-                versionCode 1
+                versionCode 2
                 versionName "2.0"
         }
         buildTypes {
